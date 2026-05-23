@@ -149,15 +149,14 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .photo-ring {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      padding: 4px;
-      background: conic-gradient(from 180deg, var(--teal), var(--amber), var(--teal));
-      animation: spinRing 8s linear infinite;
-      position: relative;
-    }
+   .photo-ring {
+     width: 240px;
+     height: 240px;
+     border-radius: 50%;
+     padding: 4px;
+     background: conic-gradient(from 180deg, var(--teal), var(--amber), var(--teal));
+     position: relative;
+  }
     @keyframes spinRing {
       to { transform: rotate(360deg); }
     }
@@ -579,11 +578,9 @@
   <div class="hero-photo">
     <div class="photo-ring">
       <div class="photo-inner">
-        <!--
-          Untuk menambah foto, hapus teks "MSG" di bawah dan uncomment tag img:
+       
           <img src="foto.jpg" alt="Dr. Made Santo Gitakarma" />
-        -->
-        MSG
+     
       </div>
     </div>
     <div class="social-row">
