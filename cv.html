@@ -15,6 +15,9 @@
       --gold: #B45309; --gold-light: #FEF3C7; --rule: #DDD8CF;
       --sidebar: #1C1917; --sidebar-text: #F5F2EC; --sidebar-muted: #A8A29E;
       --sidebar-rule: #2C2826;
+      --surface: #111111;
+      --teal: #1E3A5F;
+      --amber: #B45309;
     }
     html { scroll-behavior: smooth; font-size: 15px; }
     body { font-family: 'Source Sans 3', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
@@ -161,34 +164,44 @@
     .badge.a { background: var(--accent-light); color: var(--accent); }
     .year-pill { font-size: 0.69rem; background: var(--accent-light); color: var(--accent); padding: 2px 7px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
 
-       .photo-ring {
-     width: 240px;
-     height: 240px;
-     border-radius: 50%;
-     padding: 4px;
-     background: conic-gradient(from 180deg, var(--teal), var(--amber), var(--teal));
-     position: relative;
-  }
-    @keyframes spinRing {
-      to { transform: rotate(360deg); }
-    }
-    .photo-inner {
-      width: 50%;
-      height: 50%;
-      border-radius: 50%;
-      background: var(--surface);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4.5rem;
-      font-weight: 700;
-      color: var(--teal);
-      position: relative;
-    }
+  .photo-ring {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(
+    from 180deg,
+    var(--accent),
+    var(--gold),
+    var(--accent)
+  );
+  animation: spinRing 8s linear infinite;
+}
 
-    
+@keyframes spinRing {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.photo-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}    
     /* Footer */
     .footer { background: var(--sidebar); color: var(--sidebar-muted); text-align: center; padding: 1.4rem; font-size: 0.73rem; margin-top: 0.5rem; }
     .footer a { color: var(--gold); }
