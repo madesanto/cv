@@ -149,14 +149,15 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-  .photo-ring {
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    padding: 4px;
-    background: conic-gradient(from 180deg, var(--teal), var(--amber), var(--teal));
-    position: relative;
-  }
+    .photo-ring {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      padding: 4px;
+      background: conic-gradient(from 180deg, var(--teal), var(--amber), var(--teal));
+      animation: spinRing 8s linear infinite;
+      position: relative;
+    }
     @keyframes spinRing {
       to { transform: rotate(360deg); }
     }
@@ -456,6 +457,87 @@
       50% { transform: rotate(45deg) translateY(5px); }
     }
 
+    /* ══ FULL SECTIONS ══ */
+    .full-section { position: relative; z-index: 1; padding: 5rem 3rem; border-top: 1px solid var(--rule); }
+    .full-section.alt { background: var(--surface); }
+    .full-section-inner { max-width: 1000px; margin: 0 auto; }
+    .sec-head { text-align: center; margin-bottom: 3rem; }
+    .sec-tag { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); background: rgba(15,168,126,0.1); border: 1px solid rgba(15,168,126,0.25); padding: 4px 14px; border-radius: 20px; margin-bottom: 0.75rem; }
+    .sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 0.6rem; }
+    .sec-title em { color: var(--teal); font-style: italic; }
+    .sec-sub { font-size: 0.85rem; color: var(--muted); max-width: 520px; margin: 0 auto; line-height: 1.6; }
+
+    /* Research */
+    .research-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+    .rcard { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.3rem; transition: border-color 0.2s, transform 0.2s; }
+    .rcard:hover { border-color: var(--teal); transform: translateY(-3px); }
+    .rcard.featured { grid-column: 1 / -1; background: linear-gradient(135deg, var(--surface2), rgba(15,168,126,0.06)); border-color: rgba(15,168,126,0.35); }
+    .rcard-year { font-size: 0.67rem; font-weight: 700; color: var(--amber); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 6px; }
+    .rcard-title { font-size: 0.88rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 4px; }
+    .rcard-journal { font-size: 0.74rem; color: var(--teal); font-style: italic; margin-bottom: 8px; }
+    .rcard-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.65; margin-bottom: 10px; }
+    .rcard-desc strong { color: var(--text); }
+    .rcard-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .rtag { font-size: 0.67rem; padding: 2px 9px; border-radius: 10px; background: rgba(15,168,126,0.1); color: var(--teal); border: 1px solid rgba(15,168,126,0.2); }
+
+    /* Publications */
+    .pub-list { display: flex; flex-direction: column; }
+    .pub-row { display: grid; grid-template-columns: 40px 1fr auto; gap: 0 1rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); align-items: start; transition: background 0.15s; }
+    .pub-row:last-child { border-bottom: none; }
+    .pub-row:hover { background: rgba(15,168,126,0.04); margin: 0 -1rem; padding: 1rem; border-radius: 8px; }
+    .pub-idx { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--surface2); font-weight: 700; line-height: 1; padding-top: 2px; }
+    .pub-title { font-size: 0.84rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 3px; }
+    .pub-meta { font-size: 0.73rem; color: var(--muted); }
+    .pub-j { color: var(--teal); font-style: italic; }
+    .pub-y { margin-left: 6px; color: var(--amber); }
+    .pub-badge { font-size: 0.63rem; font-weight: 700; padding: 3px 9px; border-radius: 10px; letter-spacing: 0.05em; white-space: nowrap; margin-top: 2px; }
+    .pub-badge.intl { background: rgba(15,168,126,0.12); color: var(--teal); border: 1px solid rgba(15,168,126,0.25); }
+    .pub-badge.ieee { background: rgba(30,100,200,0.15); color: #5B9BD5; border: 1px solid rgba(30,100,200,0.25); }
+    .pub-badge.nasional { background: rgba(232,160,32,0.12); color: var(--amber); border: 1px solid rgba(232,160,32,0.25); }
+
+    /* Teaching */
+    .teach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+    .teach-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+    .teach-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--teal), var(--amber)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+    .teach-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+    .teach-card:hover::after { transform: scaleX(1); }
+    .teach-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--rule); font-weight: 700; line-height: 1; position: absolute; top: 0.75rem; right: 1rem; }
+    .teach-ico { font-size: 1.6rem; margin-bottom: 0.6rem; }
+    .teach-name { font-size: 0.93rem; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+    .teach-sks { font-size: 0.67rem; font-weight: 700; color: var(--amber); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 8px; }
+    .teach-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .teach-link { font-size: 0.75rem; font-weight: 600; color: var(--teal); text-decoration: none; }
+    .teach-link:hover { color: var(--amber); }
+
+    /* HKI */
+    .hki-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+    .hki-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem; transition: border-color 0.2s, background 0.2s; }
+    .hki-card:hover { border-color: var(--teal); background: rgba(15,168,126,0.04); }
+    .hki-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .hki-title { font-size: 0.84rem; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+    .hki-desc { font-size: 0.74rem; color: var(--muted); line-height: 1.55; margin-bottom: 8px; }
+    .hki-year { font-size: 0.67rem; font-weight: 700; color: var(--amber); letter-spacing: 0.06em; }
+
+    /* Community */
+    .comm-list { display: flex; flex-direction: column; }
+    .comm-item { display: grid; grid-template-columns: 56px 1fr auto; gap: 0 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--rule); align-items: start; }
+    .comm-item:last-child { border-bottom: none; }
+    .comm-year-badge { width: 48px; height: 48px; border-radius: 10px; background: rgba(15,168,126,0.1); border: 1px solid rgba(15,168,126,0.2); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-weight: 700; color: var(--teal); text-align: center; line-height: 1.2; }
+    .comm-title { font-size: 0.86rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 3px; }
+    .comm-place { font-size: 0.74rem; color: var(--muted); margin-bottom: 6px; }
+    .comm-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.6; }
+    .comm-role { font-size: 0.67rem; font-weight: 700; padding: 3px 9px; border-radius: 8px; letter-spacing: 0.05em; white-space: nowrap; margin-top: 2px; }
+    .comm-role.ketua { background: rgba(232,160,32,0.12); color: var(--amber); border: 1px solid rgba(232,160,32,0.25); }
+    .comm-role.anggota { background: rgba(15,168,126,0.1); color: var(--teal); border: 1px solid rgba(15,168,126,0.2); }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+    .contact-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.3rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s; display: block; }
+    .contact-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+    .contact-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+    .contact-label { font-size: 0.68rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .contact-val { font-size: 0.82rem; color: var(--text); line-height: 1.4; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 820px) {
       nav { padding: 0 1.5rem; }
@@ -497,7 +579,11 @@
   <div class="hero-photo">
     <div class="photo-ring">
       <div class="photo-inner">
+        <!--
+          Untuk menambah foto, hapus teks "MSG" di bawah dan uncomment tag img:
           <img src="foto.jpg" alt="Dr. Made Santo Gitakarma" />
+        -->
+        MSG
       </div>
     </div>
     <div class="social-row">
@@ -617,8 +703,451 @@
   </div>
 </section>
 
+<!-- ══ RESEARCH ══ -->
+<section class="full-section" id="research">
+  <div class="full-section-inner">
+    <div class="sec-head">
+      <div class="sec-tag">Research</div>
+      <h2 class="sec-title">Penelitian <em>Pilihan</em></h2>
+      <p class="sec-sub">Fokus riset pada IoT, Wireless Sensor Network, Robotika, dan Jaringan Komputer</p>
+    </div>
+    <div class="research-grid">
+
+      <div class="rcard featured">
+        <div class="rcard-year">2024 · Disertasi S3 UGM</div>
+        <div class="rcard-title">Algoritme MDMZ-LEACH: Routing Hemat Energi pada Wireless Sensor Network</div>
+        <div class="rcard-journal">Universitas Gadjah Mada · ICIC Express Letters, Mar 2024</div>
+        <p class="rcard-desc">Mengembangkan protokol clustering multi-hop yang memperpanjang umur jaringan WSN hingga <strong>63%</strong> dibanding LEACH konvensional. Simulasi pada area 12 hektar dengan rekomendasi 20 node optimal untuk efisiensi energi maksimal.</p>
+        <div class="rcard-tags"><span class="rtag">WSN</span><span class="rtag">LEACH</span><span class="rtag">Matlab</span><span class="rtag">IoT</span></div>
+      </div>
+
+      <div class="rcard">
+        <div class="rcard-year">2024 · Smart Farming</div>
+        <div class="rcard-title">Weather Station Berbasis IoT untuk Monitoring Perkebunan Real-Time</div>
+        <div class="rcard-journal">Google Cloud Platform + Aplikasi Mobile</div>
+        <p class="rcard-desc">Pemantauan suhu, kelembaban, curah hujan, dan kecepatan angin secara real-time menggunakan panel surya sebagai sumber energi mandiri.</p>
+        <div class="rcard-tags"><span class="rtag">NodeMCU</span><span class="rtag">GCP</span><span class="rtag">Solar</span></div>
+      </div>
+
+      <div class="rcard">
+        <div class="rcard-year">2022 · Monitoring Energi</div>
+        <div class="rcard-title">SIMOLIS: Sistem Monitoring Penggunaan Listrik Berbasis IoT</div>
+        <div class="rcard-journal">HKI DJKI 2022</div>
+        <p class="rcard-desc">Pembacaan sensor PZEM-004T ditampilkan pada LCD dan aplikasi Blynk di Android via WiFi untuk monitoring konsumsi listrik real-time.</p>
+        <div class="rcard-tags"><span class="rtag">NodeMCU</span><span class="rtag">Blynk</span><span class="rtag">Arduino</span></div>
+      </div>
+
+      <div class="rcard">
+        <div class="rcard-year">2020 · Jaringan</div>
+        <div class="rcard-title">Performance Optimization of MANET Networks through Routing Protocol Analysis</div>
+        <div class="rcard-journal">Computers, 10(1) · Desember 2020</div>
+        <p class="rcard-desc">Optimasi parameter AODV meningkatkan throughput 3.09%, mengurangi delay 17.7%, dan menurunkan packet loss 27.15% vs OLSR.</p>
+        <div class="rcard-tags"><span class="rtag">MANET</span><span class="rtag">AODV</span><span class="rtag">OLSR</span></div>
+      </div>
+
+      <div class="rcard">
+        <div class="rcard-year">2018 · Smart Home</div>
+        <div class="rcard-title">Home Automation System (HAS) Berbasis Android Bluetooth</div>
+        <div class="rcard-journal">JST Jurnal Sains dan Teknologi, 7(2)</div>
+        <p class="rcard-desc">Modul ABCD mengendalikan 8 perangkat listrik rumah tangga via Bluetooth HC-05 jangkauan 10 meter menggunakan aplikasi Android.</p>
+        <div class="rcard-tags"><span class="rtag">Arduino</span><span class="rtag">Bluetooth</span><span class="rtag">Android</span></div>
+      </div>
+
+      <div class="rcard">
+        <div class="rcard-year">2013 · Robotika</div>
+        <div class="rcard-title">Behavior-Based Robot dengan Algoritma Fuzzy Q-Learning (FQL)</div>
+        <div class="rcard-journal">JST Jurnal Sains dan Teknologi, 2(1)</div>
+        <p class="rcard-desc">Robot otonom beroda mampu kembali ke homebase rata-rata 70 detik dan memadamkan api lilin dalam 2 detik di medan tidak terstruktur.</p>
+        <div class="rcard-tags"><span class="rtag">Robotika</span><span class="rtag">Fuzzy</span><span class="rtag">Q-Learning</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PUBLICATIONS ══ -->
+<section class="full-section alt" id="publications">
+  <div class="full-section-inner">
+    <div class="sec-head">
+      <div class="sec-tag">Publications</div>
+      <h2 class="sec-title">Publikasi <em>Ilmiah</em></h2>
+      <p class="sec-sub">Jurnal internasional, prosiding IEEE, ACM, dan jurnal nasional terakreditasi</p>
+    </div>
+    <div class="pub-list">
+
+      <div class="pub-row">
+        <div class="pub-idx">01</div>
+        <div class="pub-body">
+          <div class="pub-title">Performance of Multi-hop Dynamic Multi-Zone for LEACH in Wireless Sensor Network Mapping on the Agriculture Area</div>
+          <div class="pub-meta"><span class="pub-j">ICIC Express Letters</span> <span class="pub-y">Mar 2024</span></div>
+        </div>
+        <div class="pub-badge intl">International</div>
+      </div>
+
+      <div class="pub-row">
+        <div class="pub-idx">02</div>
+        <div class="pub-body">
+          <div class="pub-title">A method for non-alphanumeric text processing on transliteration to the Balinese Script</div>
+          <div class="pub-meta"><span class="pub-j">ICIC Express Letters</span> <span class="pub-y">Jul 2022</span></div>
+        </div>
+        <div class="pub-badge intl">International</div>
+      </div>
+
+      <div class="pub-row">
+        <div class="pub-idx">03</div>
+        <div class="pub-body">
+          <div class="pub-title">Performance optimization of MANET networks through routing protocol analysis</div>
+          <div class="pub-meta"><span class="pub-j">Computers, 10(1)</span> <span class="pub-y">Des 2020</span></div>
+        </div>
+        <div class="pub-badge intl">International</div>
+      </div>
+
+      <div class="pub-row">
+        <div class="pub-idx">04</div>
+        <div class="pub-body">
+          <div class="pub-title">A method for scriptio continua management on the transliteration to the Balinese script</div>
+          <div class="pub-meta"><span class="pub-j">Turkish Journal of Computer and Mathematics Education (TURCOMAT)</span> <span class="pub-y">2020</span></div>
+        </div>
+        <div class="pub-badge intl">International</div>
+      </div>
+
+      <div class="pub-row">
+        <div class="pub-idx">05</div>
+        <div class="pub-body">
+          <div class="pub-title">Latin to Balinese script transliteration: lessons learned from the computer-based implementation</div>
+          <div class="pub-meta"><span class="pub-j">ACM ICSIM 2021</span> <span class="pub-y">Jul 2021</span></div>
+        </div>
+        <div class="pub-badge intl">ACM</div>
+      </div>
+
+      <div class="pub-row">
+        <div class="pub-idx">06</div>
+        <div class="pub-body">
+          <div class="pub-title">A real-time smart home system using android Bluetooth control device module</div>
+          <div class="pub-meta"><span class="pub-j">IEEE ISESD 2019</span> <span class="pub-y">Okt 2019</span></div>
+        </div>
+        <div class="pub-badge ieee">IEEE</div>
+      </div>
+
+      <div class="pub-row">
+        <div class="pub-idx">07</div>
+        <div class="pub-body">
+          <div class="pub-title">Development of adaptive mobile learning (AML) on information system courses</div>
+          <div class="pub-meta"><span class="pub-j">IJACSA, 6(12)</span> <span class="pub-y">Okt 2015</span></div>
+        </div>
+        <div class="pub-badge intl">International</div>
+      </div>
+
+      <div class="pub-row">
+        <div class="pub-idx">08</div>
+        <div class="pub-body">
+          <div class="pub-title">Pemantauan Lingkungan Pertanian Menggunakan Weather Station Berbasis IoT</div>
+          <div class="pub-meta"><span class="pub-j">Jurnal KOMTEKS, 4(1)</span> <span class="pub-y">Jan 2025</span></div>
+        </div>
+        <div class="pub-badge nasional">Nasional</div>
+      </div>
+
+      <div class="pub-row">
+        <div class="pub-idx">09</div>
+        <div class="pub-body">
+          <div class="pub-title">Sistem Navigasi Robot Otonom Multiplatform iSRo II dengan Compact Dynamic Fuzzy Q-Learning</div>
+          <div class="pub-meta"><span class="pub-j">Prosiding IES — PENS ITS Surabaya</span> <span class="pub-y">Sep 2010</span></div>
+        </div>
+        <div class="pub-badge nasional">Nasional</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ TEACHING ══ -->
+<section class="full-section" id="teaching">
+  <div class="full-section-inner">
+    <div class="sec-head">
+      <div class="sec-tag">Teaching</div>
+      <h2 class="sec-title">Mata Kuliah <em>yang Diampu</em></h2>
+      <p class="sec-sub">Prodi D4 Teknologi Rekayasa Sistem Elektronika (TRSE), FTK — Undiksha</p>
+    </div>
+    <div class="teach-grid">
+
+      <div class="teach-card">
+        <div class="teach-num">01</div>
+        <div class="teach-ico">🌐</div>
+        <div class="teach-name">Internet of Things (IoT)</div>
+        <div class="teach-sks">3 SKS</div>
+        <p class="teach-desc">Arsitektur IoT, protokol MQTT, NodeMCU, Arduino, integrasi cloud Blynk dan Google Cloud Platform.</p>
+        <a href="#" class="teach-link">Akses Materi →</a>
+      </div>
+
+      <div class="teach-card">
+        <div class="teach-num">02</div>
+        <div class="teach-ico">🔗</div>
+        <div class="teach-name">Jaringan Komputer</div>
+        <div class="teach-sks">3 SKS</div>
+        <p class="teach-desc">Model OSI/TCP-IP, routing, switching, konfigurasi MikroTik, manajemen hotspot, dan fiber optik.</p>
+        <a href="#" class="teach-link">Akses Materi →</a>
+      </div>
+
+      <div class="teach-card">
+        <div class="teach-num">03</div>
+        <div class="teach-ico">🤖</div>
+        <div class="teach-name">Sistem Kendali Cerdas</div>
+        <div class="teach-sks">3 SKS</div>
+        <p class="teach-desc">Logika fuzzy, PID, kontrol berbasis AI, PLC Schneider, dan implementasi sistem robotika otonom.</p>
+        <a href="#" class="teach-link">Akses Materi →</a>
+      </div>
+
+      <div class="teach-card">
+        <div class="teach-num">04</div>
+        <div class="teach-ico">💾</div>
+        <div class="teach-name">Sistem Mikroprosesor</div>
+        <div class="teach-sks">3 SKS</div>
+        <p class="teach-desc">Arsitektur mikrokontroler, pemrograman assembly & C, antarmuka I/O, dan embedded systems.</p>
+        <a href="#" class="teach-link">Akses Materi →</a>
+      </div>
+
+      <div class="teach-card">
+        <div class="teach-num">05</div>
+        <div class="teach-ico">🧠</div>
+        <div class="teach-name">Computational Thinking</div>
+        <div class="teach-sks">3 SKS</div>
+        <p class="teach-desc">Dekomposisi, pengenalan pola, abstraksi, dan perancangan algoritma untuk pemecahan masalah teknik.</p>
+        <a href="#" class="teach-link">Akses Materi →</a>
+      </div>
+
+      <div class="teach-card">
+        <div class="teach-num">06</div>
+        <div class="teach-ico">⚡</div>
+        <div class="teach-name">Sistem Digital</div>
+        <div class="teach-sks">3 SKS</div>
+        <p class="teach-desc">Logika digital, rangkaian kombinasional & sekuensial, FPGA, dan desain sistem digital modern.</p>
+        <a href="#" class="teach-link">Akses Materi →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ HKI ══ -->
+<section class="full-section alt" id="hki">
+  <div class="full-section-inner">
+    <div class="sec-head">
+      <div class="sec-tag">HKI & Inovasi</div>
+      <h2 class="sec-title">Karya <em>Temuan & HKI</em></h2>
+      <p class="sec-sub">Karya terdaftar di Direktorat Jenderal Kekayaan Intelektual (DJKI) — dgip.go.id</p>
+    </div>
+    <div class="hki-grid">
+
+      <div class="hki-card">
+        <div class="hki-icon">💻</div>
+        <div class="hki-title">BaliSearch</div>
+        <div class="hki-desc">Program pencarian kemiripan kata pada Kamus Bali berbasis web</div>
+        <div class="hki-year">Jan 2021</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">📱</div>
+        <div class="hki-title">Aksara Bali SD</div>
+        <div class="hki-desc">Aplikasi mobile transliterasi teks Latin ke Aksara Bali berbasis Font Bali Simbar Dwijendra</div>
+        <div class="hki-year">Jul 2021</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">🌐</div>
+        <div class="hki-title">Bali Script</div>
+        <div class="hki-desc">Aplikasi web kamus Aksara Bali dengan tulisan Aksara Bali dan Latin</div>
+        <div class="hki-year">Jul 2021</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">⚡</div>
+        <div class="hki-title">SIMOLIS</div>
+        <div class="hki-desc">Sistem Monitoring Penggunaan Listrik berbasis NodeMCU ESP8266 dan Blynk</div>
+        <div class="hki-year">Feb 2022</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">🔌</div>
+        <div class="hki-title">BLASTART</div>
+        <div class="hki-desc">Sistem pencegah perangkat listrik/elektronik starting bersamaan berbasis PLC Schneider</div>
+        <div class="hki-year">Okt 2022</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">📡</div>
+        <div class="hki-title">MDMZ-LEACH</div>
+        <div class="hki-desc">Algoritme routing clustering dinamis multi-hop multi-zone untuk efisiensi energi WSN</div>
+        <div class="hki-year">Mei 2024</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">🌱</div>
+        <div class="hki-title">SISMOTAN</div>
+        <div class="hki-desc">Sistem monitoring tanaman berbasis Arduino dengan aturan fuzzy untuk greenhouse</div>
+        <div class="hki-year">Jun 2023</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">🏠</div>
+        <div class="hki-title">Smart Parking</div>
+        <div class="hki-desc">Sistem parkir mobil otomatis menggunakan Arduino dengan deteksi slot real-time</div>
+        <div class="hki-year">Mei 2024</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">📖</div>
+        <div class="hki-title">Buku Panduan Hotspot MikroTik</div>
+        <div class="hki-desc">Panduan konfigurasi hotspot, manajemen user, dan voucher internet dengan MikroTik</div>
+        <div class="hki-year">Nov 2022</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">🔵</div>
+        <div class="hki-title">Komunikasi Bluetooth</div>
+        <div class="hki-desc">Program komputer komunikasi antar modul Bluetooth untuk kontrol perangkat Arduino</div>
+        <div class="hki-year">Nov 2023</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">☀️</div>
+        <div class="hki-title">Buck Converter Solar Panel</div>
+        <div class="hki-desc">Alat penstabil tegangan keluaran solar panel menggunakan buck converter</div>
+        <div class="hki-year">Okt 2024</div>
+      </div>
+
+      <div class="hki-card">
+        <div class="hki-icon">🏡</div>
+        <div class="hki-title">Modul HOME FIRST</div>
+        <div class="hki-desc">Hotspot MikroTik Access Point Fiber Optik Router Supported untuk jaringan RT/RW-Net</div>
+        <div class="hki-year">Okt 2024</div>
+      </div>
+
+    </div>
+    <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:1.5rem;">+ 10 karya HKI lainnya terdaftar di DJKI</p>
+  </div>
+</section>
+
+<!-- ══ COMMUNITY ══ -->
+<section class="full-section" id="community">
+  <div class="full-section-inner">
+    <div class="sec-head">
+      <div class="sec-tag">Community Service</div>
+      <h2 class="sec-title">Pengabdian <em>Masyarakat</em></h2>
+      <p class="sec-sub">Tri Dharma Perguruan Tinggi — kontribusi nyata untuk masyarakat dan dunia pendidikan</p>
+    </div>
+    <div class="comm-list">
+
+      <div class="comm-item">
+        <div class="comm-left">
+          <div class="comm-year-badge">2024</div>
+        </div>
+        <div class="comm-body">
+          <div class="comm-title">Modul HOME FIRST: Pelatihan Jaringan Komputer di SMK Negeri 3 Singaraja</div>
+          <div class="comm-place">SENADIMAS ke-9, Undiksha · Singaraja, Bali</div>
+          <p class="comm-desc">Pelatihan hotspot MikroTik dan fiber optik untuk 30 siswa dan 2 guru — peningkatan nilai rata-rata 13%, dengan 63% siswa dan 100% guru memahami materi.</p>
+        </div>
+        <span class="comm-role ketua">Ketua</span>
+      </div>
+
+      <div class="comm-item">
+        <div class="comm-left">
+          <div class="comm-year-badge">2024</div>
+        </div>
+        <div class="comm-body">
+          <div class="comm-title">Kamus Aksara Bali Berbasis Aplikasi di SMAN 2 Busungbiu</div>
+          <div class="comm-place">Undiksha · Buleleng, Bali</div>
+          <p class="comm-desc">Pelatihan 32 jam kepada 27 peserta (guru, siswa, mahasiswa Undiksha) untuk melestarikan Aksara Bali melalui teknologi digital.</p>
+        </div>
+        <span class="comm-role anggota">Anggota</span>
+      </div>
+
+      <div class="comm-item">
+        <div class="comm-left">
+          <div class="comm-year-badge">2021</div>
+        </div>
+        <div class="comm-body">
+          <div class="comm-title">Pelatihan Hotspot MikroTik & Manajemen User di Desa Tianyar Barat, Karangasem</div>
+          <div class="comm-place">Munti Gunung, Kubu — Karangasem, Bali</div>
+          <p class="comm-desc">Memberikan akses internet merata di daerah terpencil sekaligus membuka peluang bisnis voucher internet bagi masyarakat desa wisata.</p>
+        </div>
+        <span class="comm-role ketua">Ketua</span>
+      </div>
+
+      <div class="comm-item">
+        <div class="comm-left">
+          <div class="comm-year-badge">2022</div>
+        </div>
+        <div class="comm-body">
+          <div class="comm-title">Pelatihan Aplikasi Konversi Aksara Bali (ToAksara) di SMAN 2 Singaraja</div>
+          <div class="comm-place">Undiksha · Singaraja, Bali</div>
+          <p class="comm-desc">Mengenalkan aplikasi ToAksara kepada guru dan siswa untuk melestarikan budaya Bali dan mempermudah pembelajaran bahasa Bali.</p>
+        </div>
+        <span class="comm-role anggota">Anggota</span>
+      </div>
+
+      <div class="comm-item">
+        <div class="comm-left">
+          <div class="comm-year-badge">2016</div>
+        </div>
+        <div class="comm-body">
+          <div class="comm-title">Pelatihan Pengolahan Sampah Plastik Menjadi Minyak di TPST Desa Anturan</div>
+          <div class="comm-place">TPST Desa Anturan — Buleleng, Bali</div>
+          <p class="comm-desc">Pelatihan teknik pirolisis untuk mengolah sampah plastik menjadi minyak sebagai solusi lingkungan dan energi alternatif bagi masyarakat.</p>
+        </div>
+        <span class="comm-role ketua">Ketua</span>
+      </div>
+
+      <div class="comm-item">
+        <div class="comm-left">
+          <div class="comm-year-badge">2015</div>
+        </div>
+        <div class="comm-body">
+          <div class="comm-title">Pelatihan IP Camera sebagai Alat Keamanan Berbasis Jaringan di SMK Negeri 2 Seririt</div>
+          <div class="comm-place">SMK Negeri 2 Seririt — Buleleng, Bali</div>
+          <p class="comm-desc">Memberikan modul IP Camera dan pelatihan untuk mendukung pembelajaran jaringan komputer di jurusan TKJ SMK Negeri 2 Seririt.</p>
+        </div>
+        <span class="comm-role ketua">Ketua</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="full-section alt" id="contact">
+  <div class="full-section-inner" style="max-width:700px;">
+    <div class="sec-head">
+      <div class="sec-tag">Contact</div>
+      <h2 class="sec-title">Hubungi <em>Saya</em></h2>
+      <p class="sec-sub">Terbuka untuk kolaborasi penelitian, pengabdian masyarakat, dan diskusi akademik</p>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:santo@undiksha.ac.id" class="contact-card">
+        <div class="contact-icon">✉</div>
+        <div class="contact-label">Email Institusi</div>
+        <div class="contact-val">santo@undiksha.ac.id</div>
+      </a>
+      <a href="mailto:santo.made@gmail.com" class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-label">Email Pribadi</div>
+        <div class="contact-val">santo.made@gmail.com</div>
+      </a>
+      <div class="contact-card">
+        <div class="contact-icon">☎</div>
+        <div class="contact-label">Telepon / WA</div>
+        <div class="contact-val">082147134777</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">◎</div>
+        <div class="contact-label">Alamat</div>
+        <div class="contact-val">Br. Celuk Buluh, Kalibukbuk, Buleleng, Bali</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ FOOTER ══ -->
-<footer id="contact">
+<footer id="footer">
   © 2025 Dr. Ir. Made Santo Gitakarma, S.T., M.T., MCE. &nbsp;·&nbsp;
   Universitas Pendidikan Ganesha, Singaraja, Bali &nbsp;·&nbsp;
   <a href="mailto:santo@undiksha.ac.id">santo@undiksha.ac.id</a>
